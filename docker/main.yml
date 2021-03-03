@@ -4,14 +4,14 @@
   become: true
   tasks:
       - name: Set Nameserver
-      - include: ./dns/dns.yml
+        include: ./dns/dns.yml
 
       - name: Install Docker on CentOS
-      - include: ./centos.yml
+        include: ./centos.yml
         when: 
           - ansible_facts['distribution'] == "CentOS"
 
       - name: Install Docker on Ubuntu
-      - include: ./ubuntu.yml
+        include: ./ubuntu.yml
         when: 
           - ansible_facts['distribution'] == "Ubuntu"
