@@ -1,5 +1,4 @@
 ---
-  tasks:
     - name: Insert nameserver
       lineinfile:
         path: /etc/resolve.conf
