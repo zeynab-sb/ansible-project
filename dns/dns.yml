@@ -1,7 +1,7 @@
 ---
     - name: Insert nameserver
       lineinfile:
-        path: /etc/resolve.conf
+        path: /etc/resolv.conf
         line: 'nameserver 185.51.200.2'
         insertbefore: BOF
 ...
