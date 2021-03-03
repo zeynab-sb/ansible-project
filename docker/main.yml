@@ -9,9 +9,9 @@
       - name: Install Docker on CentOS
       - include: ./centos.yml
         when: 
-          -ansible_facts['distribution'] == "CentOS"
+          - ansible_facts['distribution'] == "CentOS"
 
       - name: Install Docker on Ubuntu
       - include: ./ubuntu.yml
         when: 
-          -ansible_facts['distribution'] == "Ubuntu"
+          - ansible_facts['distribution'] == "Ubuntu"
