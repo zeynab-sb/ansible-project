@@ -6,7 +6,7 @@
     - ./vars/defualt-ubuntu.yml
   tasks:
       - name: Set Nameserver
-        include: ./dns/dns.yml
+        include: ../dns/dns.yml
 
       - name: Install Docker on CentOS
         include: ./centos.yml
