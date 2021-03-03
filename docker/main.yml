@@ -2,6 +2,8 @@
 - hosts: ansible_client
   gather_facts: yes
   become: true
+  vars_files:
+    - vars/default-ubuntu.yml
   tasks:
       - name: Set Nameserver
         include: ./dns/dns.yml
