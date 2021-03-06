@@ -1,0 +1,12 @@
+---
+- hosts: ansible_client
+  become: true
+  vars_files:
+    - ./vars/self_signed_certs.yml
+
+  tasks:
+       - name: Create self-signed certificate
+         command: >
+            openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout "{{Key}}" -out "{{cert}}"
+
+  
