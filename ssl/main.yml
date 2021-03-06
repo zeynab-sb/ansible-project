@@ -8,6 +8,7 @@
        - name: Create self-signed certificate
          command: >
             openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout "{{Key}}" -out "{{cert}}"
+            -subj "/C=US/ST=New York/L=Brooklyn/O=Example Brooklyn Company/CN=examplebrooklyn.com
 
        - name: Write the apache default-ssl file
          ansible.builtin.template:
