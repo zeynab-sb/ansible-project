@@ -4,6 +4,7 @@
   become: true
   vars_files:
     - ./vars/defualt-ubuntu.yml
+    - ./vars/credentials.yml
   tasks:
       - name: Set Nameserver
         include: ../dns/dns.yml
