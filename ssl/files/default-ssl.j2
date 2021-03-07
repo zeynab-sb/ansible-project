@@ -3,6 +3,7 @@
 
     SSLCertificateFile    "/etc/ssl/certs/apache-selfsigned.crt"
     SSLCertificateKeyFile "/etc/ssl/private/apache-selfsigned.key"
+	SSLCACertificateFile  "/etc/ssl/certs/dhparam.pem"
 
     LogLevel debug
     ErrorLog  "logs/443_error_log"
