@@ -17,7 +17,11 @@
        - name: Write the apache 000-default file
          ansible.builtin.template:
           src: ./files/000-default.j2
-          dest: /etc/apache2/sites-available/000-default.conf   
+          dest: /etc/apache2/sites-available/000-default.conf    
+
+       - name: Enable SSL Mode
+         command: > 
+            a2enmod ssl     
 
          notify:
          - Restart apache
