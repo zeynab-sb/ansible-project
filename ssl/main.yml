@@ -14,6 +14,11 @@
           src: ./files/default-ssl.j2
           dest: /etc/apache2/sites-available/default-ssl.conf
 
+       - name: Write the apache 000-default file
+         ansible.builtin.template:
+          src: ./files/000-default.j2
+          dest: /etc/apache2/sites-available/000-default.conf   
+
          notify:
          - Restart apache
 
