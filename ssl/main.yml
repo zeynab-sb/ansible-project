@@ -18,12 +18,12 @@
            a2enmod ssl     
        - name: Write the apache default-ssl file
          ansible.builtin.template:
-          src: ./default-ssl.j2
+          src: ./files/default-ssl.j2
           dest: /etc/apache2/sites-available/default-ssl.conf
 
        - name: Write the apache 000-default file
          ansible.builtin.template:
-          src: ./000-default.j2
+          src: ./files/000-default.j2
           dest: /etc/apache2/sites-available/000-default.conf
 
        - name: Enable SSL Config
