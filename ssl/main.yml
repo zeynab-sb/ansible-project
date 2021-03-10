@@ -9,31 +9,31 @@
          command: >
             openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout "{{Key}}" -out "{{cert}}" -subj "/C=US/ST=New York/L=Brooklyn/O=Example Brooklyn Company/CN=examplebrooklyn.com"
 
-       - name: Create Diffie-Hellman group
-         command: >
-            openssl dhparam -out "{{dhparam}}" 2048
-                 
+      #  - name: Create Diffie-Hellman group
+      #    command: >
+      #       openssl dhparam -out "{{dhparam}}" 2048
+       
+       - name: Enable SSL Mode
+         command: > 
+           a2enmod ssl     
        - name: Write the apache default-ssl file
          ansible.builtin.template:
-          src: ./files/default-ssl.j2
+          src: ./default-ssl.j2
           dest: /etc/apache2/sites-available/default-ssl.conf
 
        - name: Write the apache 000-default file
          ansible.builtin.template:
-          src: ./files/000-default.j2
-          dest: /etc/apache2/sites-available/000-default.conf    
+          src: ./000-default.j2
+          dest: /etc/apache2/sites-available/000-default.conf
 
-       - name: Enable SSL Mode
+       - name: Enable SSL Config
          command: > 
-            a2enmod ssl     
+          a2ensite default-ssl.conf 
 
          notify:
          - Restart apache
-
   handlers:
     - name: Restart apache
       ansible.builtin.service:
         name: apache2
-        state: restarted     
-
-  
+        state: restarted
